@@ -31,7 +31,7 @@ print(proxies)
 workingproxy = []
 failedproxy = []
 
-# try out the proxies and append the working ones to a list for later use
+# try out the proxies and append the working ones to a list 
 for i in proxies:
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument('--proxy-server=%s' % i)
