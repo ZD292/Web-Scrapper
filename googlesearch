@@ -1,0 +1,29 @@
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+Path = 'C:\\chromedriver.exe'
+driver = webdriver.Chrome(Path)
+
+driver.get("https://www.google.com/")
+
+
+lst = ['Glam life beauty & nail', 'chef choo signature', 'Cozy Handmade']
+for i in lst:
+    search = driver.find_element(By.NAME, "q")
+    search.send_keys(i)
+    search.send_keys(Keys.RETURN)
+    try:
+        main = driver.find_element(By.CLASS_NAME, "LrzXr")
+        print(main.text)
+    except:
+        print("nothing")
+    driver.back()
+
+
+time.sleep(3)
+driver.quit()
